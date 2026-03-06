@@ -1,0 +1,94 @@
+:root {
+    --gold: #D4AF37;
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --gray: #f5f5f5;
+    --accent: #ff3366;
+    --success: #22c55e;
+}
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Inter',sans-serif; background: var(--black); color: var(--white); overflow-x:hidden;}
+
+/* Hero Section */
+.hero {min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:2rem; background:linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%); position:relative; overflow:hidden;}
+.hero::before {content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%); animation:pulse 4s ease-in-out infinite;}
+@keyframes pulse {0%,100%{transform:scale(1);opacity:0.5;}50%{transform:scale(1.1);opacity:0.8;}}
+.hero-content{position:relative; z-index:2; max-width:800px;}
+h1{font-family:'Playfair Display',serif; font-size:clamp(2.5rem,8vw,5rem); margin-bottom:1rem; background:linear-gradient(135deg,var(--gold) 0%,#fff 50%,var(--gold) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:shimmer 3s infinite; background-size:200% auto;}
+@keyframes shimmer {0%{background-position:-200% center;}100%{background-position:200% center;}}
+.subtitle{font-size:1.25rem; color:#ccc; margin-bottom:3rem; font-weight:300;}
+
+/* Payment Banner */
+.payment-banner{background:linear-gradient(135deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0.05) 100%); border:2px solid var(--gold); border-radius:15px; padding:2rem; margin:2rem auto; max-width:600px; backdrop-filter:blur(10px);}
+.payment-banner h3{color:var(--gold); font-family:'Playfair Display',serif; margin-bottom:1.5rem; font-size:1.5rem;}
+.bank-details{background: rgba(0,0,0,0.3); border-radius:10px; padding:1.5rem; margin:1rem 0; text-align:left; border:1px solid rgba(212,175,55,0.2);}
+.bank-row{display:flex; justify-content:space-between; align-items:center; padding:0.75rem 0; border-bottom:1px solid rgba(255,255,255,0.1);}
+.bank-row:last-child{border-bottom:none;}
+.bank-label{color:#888; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;}
+.bank-value{font-weight:600; color:var(--white); font-family:'Courier New',monospace; font-size:1.1rem;}
+.copy-btn{background:rgba(212,175,55,0.2); border:1px solid var(--gold); color:var(--gold); padding:0.25rem 0.75rem; border-radius:5px; cursor:pointer; font-size:0.8rem; transition:all 0.3s ease; margin-left:1rem;}
+.copy-btn:hover{background:var(--gold); color:var(--black);}
+.instruction-box{background:rgba(34,197,94,0.1); border-left:4px solid var(--success); padding:1rem; margin-top:1.5rem; border-radius:0 8px 8px 0; text-align:left;}
+.instruction-box p{color:#86efac; font-size:0.95rem; line-height:1.6;}
+.instruction-box strong{color:var(--success);}
+
+/* Tickets Section */
+.tickets-section{padding:5rem 2rem; background:var(--gray); color:var(--black);}
+.section-title{text-align:center; font-family:'Playfair Display',serif; font-size:2.5rem; margin-bottom:1rem; color:var(--black);}
+.section-subtitle{text-align:center; color:#666; margin-bottom:3rem; font-size:1.1rem;}
+.tickets-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; max-width:1200px; margin:0 auto;}
+.ticket-card{background:var(--white); border-radius:20px; padding:2.5rem; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,0.1); transition:all 0.3s ease; cursor:pointer; position:relative; overflow:hidden; border:2px solid transparent;}
+.ticket-card:hover{transform:translateY(-10px); box-shadow:0 20px 60px rgba(0,0,0,0.15); border-color:var(--gold);}
+.ticket-card.featured{background:linear-gradient(135deg,var(--black) 0%,#1a1a2e 100%); color:var(--white); transform:scale(1.05);}
+.ticket-card.featured:hover{transform:scale(1.05) translateY(-10px);}
+.ticket-type{font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:0.5rem; color:var(--gold);}
+.ticket-card.featured .ticket-type{color:var(--gold);}
+.price{font-size:3rem; font-weight:700; margin:1rem 0; color:var(--black);}
+.ticket-card.featured .price{color:var(--white);}
+.currency{font-size:1.5rem; vertical-align:top;}
+.features{list-style:none; margin:1.5rem 0; text-align:left;}
+.features li{padding:0.5rem 0; padding-left:1.5rem; position:relative;}
+.features li::before{content:'✦'; position:absolute; left:0; color:var(--gold);}
+.select-btn{background:var(--black); color:var(--white); border:none; padding:1rem 2rem; border-radius:50px; font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.3s ease; width:100%; margin-top:1rem;}
+.ticket-card.featured .select-btn{background:var(--gold); color:var(--black);}
+.select-btn:hover{transform:scale(1.05); box-shadow:0 10px 30px rgba(0,0,0,0.2);}
+
+/* Purchase Form */
+.form-section{padding:5rem 2rem; background:var(--black); display:none;}
+.form-section.active{display:block; animation:fadeIn 0.5s ease;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+.form-container{max-width:600px; margin:0 auto; background:rgba(255,255,255,0.05); padding:3rem; border-radius:20px; backdrop-filter:blur(10px); border:1px solid rgba(212,175,55,0.3);}
+.form-title{font-family:'Playfair Display',serif; font-size:2rem; text-align:center; margin-bottom:0.5rem; color:var(--gold);}
+.form-subtitle{text-align:center; color:#888; margin-bottom:2rem; font-size:0.9rem;}
+.form-group{margin-bottom:1.5rem;}
+label{display:block; margin-bottom:0.5rem; color:#ccc; font-size:0.9rem; text-transform:uppercase; letter-spacing:1px;}
+input, select{width:100%; padding:1rem; border:1px solid rgba(212,175,55,0.3); background:rgba(255,255,255,0.05); color:var(--white); border-radius:10px; font-size:1rem; transition:all 0.3s ease;}
+input:focus, select:focus{outline:none; border-color:var(--gold); background:rgba(255,255,255,0.1);}
+.payment-proof-box{background:rgba(34,197,94,0.05); border:2px dashed var(--success); border-radius:10px; padding:1.5rem; margin:1.5rem 0; text-align:center;}
+.payment-proof-box label{color:var(--success); text-align:center; margin-bottom:1rem;}
+.submit-btn{width:100%; padding:1.25rem; background:linear-gradient(135deg,var(--gold) 0%,#b8941f 100%); color:var(--black); border:none; border-radius:50px; font-size:1.1rem; font-weight:700; cursor:pointer; transition:all 0.3s ease; margin-top:1rem;}
+.submit-btn:hover{transform:translateY(-2px); box-shadow:0 10px 30px rgba(212,175,55,0.3);}
+.submit-btn:disabled{opacity:0.6; cursor:not-allowed;}
+
+/* Sponsors Section */
+.sponsors-section{padding:4rem 2rem; background:var(--white); text-align:center;}
+.sponsors-title{font-family:'Playfair Display',serif; font-size:1.5rem; color:#666; margin-bottom:3rem; text-transform:uppercase; letter-spacing:3px;}
+.sponsors-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:3rem; max-width:1000px; margin:0 auto; align-items:center;}
+.sponsor-slot{aspect-ratio:3/2; background:var(--gray); border-radius:10px; display:flex; align-items:center; justify-content:center; border:2px dashed #ccc; transition:all 0.3s ease; overflow:hidden;}
+.sponsor-slot:hover{border-color:var(--gold); transform:scale(1.05);}
+.sponsor-slot img{max-width:80%; max-height:60%; object-fit:contain; filter:grayscale(100%); transition:filter 0.3s ease;}
+.sponsor-slot:hover img{filter:grayscale(0%);}
+
+/* Success Modal */
+.success-message{display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:var(--white); color:var(--black); padding:3rem; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.3); text-align:center; z-index:1000; max-width:400px;}
+.success-message.active{display:block; animation:popIn 0.5s ease;}
+@keyframes popIn{0%{transform:translate(-50%, -50%) scale(0.8); opacity:0;} 100%{transform:translate(-50%, -50%) scale(1); opacity:1;}}
+.overlay{display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:999;}
+.overlay.active{display:block;}
+.checkmark{width:80px; height:80px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-size:2.5rem;}
+
+/* Warning Banner */
+.warning-banner{background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); color:#fca5a5; padding:1rem; border-radius:8px; margin-bottom:1.5rem; font-size:0.9rem; text-align:center;}
+
+/* Responsive */
+@media(max-width:768px){.sponsors-grid{grid-template-columns:repeat(2,1fr); gap:1.5rem;}.ticket-card.featured{transform:scale(1);}.form-container{padding:2rem 1.5rem;}.bank-row{flex-direction:column; align-items:flex-start; gap:0.5rem;}.copy-btn{margin-left:0;margin-top:0.5rem;}}
